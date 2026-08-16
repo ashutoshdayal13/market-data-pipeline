@@ -1,0 +1,28 @@
+ashutosh_dayal@ASHUPC:/mnt/c/workspace/sem9/placement/market_data_project$ clear
+ashutosh_dayal@ASHUPC:/mnt/c/workspace/sem9/placement/market_data_project$ export MDP_PRODUCER_CPU=2 MDP_CONSUMER=3
+ashutosh_dayal@ASHUPC:/mnt/c/workspace/sem9/placement/market_data_project$ taskset -c 2,3 ./build/benchmark
+──────────────────────────────────────────────────
+  market-data-pipeline · benchmark suite
+  Pin cores for stable numbers (Linux):
+    MDP_PRODUCER_CPU=2 MDP_CONSUMER_CPU=3 taskset -c 2,3 ./benchmark
+──────────────────────────────────────────────────
+
+── A. CAPACITY ──────────────────────────────────
+  [1] Pipeline throughput (NoOp)         :  13.03 M msg/s (median of 3: 11.82 / 15.39 / 13.03)
+  [2] Queue push/pop (1 thread)          : 304.14 M msg/s (median of 3: 289.88 / 304.14 / 311.96)
+  [3] Queue push/pop (2 threads)         : 232.49 M msg/s (median of 3: 199.23 / 238.62 / 232.49)
+
+── B. INTRINSIC LATENCY (max_in_flight=1) ───────
+
+  [4] Paced pipeline latency — transit + normalize, no queue wait
+    min :       35 ns    p50 :      200 ns
+    p90 :      200 ns    p99 :      300 ns
+    max :   206039 ns
+
+── C. OVERLOAD (max_in_flight=0) ────────────────
+
+  [5] Full-blast latency — ring fills, queue wait dominates
+    min :       39 ns    p50 :  4778720 ns
+    p90 :  4778720 ns    p99 :  4778720 ns
+    max :  4778720 ns
+    (p50 ≈ p99 ≈ time to drain a full ring — expected under overload)

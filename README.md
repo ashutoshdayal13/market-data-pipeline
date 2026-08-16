@@ -106,9 +106,6 @@ pipeline itself is.
 
 ## Benchmark results
 
-> Fill in from your own machine — run `./build/benchmark` on pinned cores
-> and record the environment (`uname -a`, `g++ --version`, CPU model).
-
 | Metric | Value |
 |---|---|
 | Pipeline throughput (NoOp, full blast) | 13.03 M msg/s |

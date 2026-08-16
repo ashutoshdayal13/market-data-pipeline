@@ -111,11 +111,11 @@ pipeline itself is.
 
 | Metric | Value |
 |---|---|
-| Pipeline throughput (NoOp, full blast) | _M msg/s_ |
-| Queue push/pop (1 thread) | _M msg/s_ |
-| Queue push/pop (2 threads) | _M msg/s_ |
-| Intrinsic latency p50 / p99 | _ns_ |
-| Overload latency p50 | _ms_ |
+| Pipeline throughput (NoOp, full blast) | 13.03 M msg/s |
+| Queue push/pop (1 thread) | 304.14 msg/s |
+| Queue push/pop (2 threads) | 232.49 msg/s |
+| Intrinsic latency p50 / p99 | 200 ns / 300 ns |
+| Overload latency p50 | 4778720 ns |
 
 ## Tests
 

@@ -6,7 +6,7 @@ single-producer/single-consumer (SPSC) ring buffer, with nanosecond-resolution
 latency measurement.
 
 ```
-FeedGenerator ──push──▶ SPSC ring (65536) ──pop──▶ normalize ──▶ Strategy
+FeedGenerator ──push──> SPSC ring (65536) ──pop──> normalize ──> Strategy
   (producer thread)                          (consumer thread)
 ```
 
